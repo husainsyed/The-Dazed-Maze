@@ -4,8 +4,7 @@ A text-based adventure game that uses the concepts of Object-Oriented programmin
 
 ## Instructions
 
-The game is based on mazes. You start at room 'A' and you have to navigate through other rooms to get to the correct room. Each room has at most 4 neighbors. The 1st neighbor is at North of the room you are in, 2nd is at South, 3rd is at East, and 4th is at West. If rooms have 'X' as their neighbors, it means that there is no neighboring room present at that location.
-The rooms are labeled by English letters. You are only allowed to enter CAPITALIZED LETTER of the room you wish to go in.
+The game is based on mazes. You start at room 'A' and you have to navigate through other rooms to get to the correct room. Each room has at most 4 neighbors. The 1st neighbor is at North of the room you are in, 2nd is at South, 3rd is at East, and 4th is at West. If rooms have 'X' as their neighbors, it means that there is no neighboring room present at that location. The rooms are labeled by English letters.
 
 ## How the game is structured
 
