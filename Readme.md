@@ -9,3 +9,6 @@ The game is based on mazes. You start at room 'A' and you have to navigate throu
 ## How the game is structured
 
 The game uses the techniques of Object-oriented programming and Data Structures to function. ```Main.java``` mainly handles the client interface, i.e., instructions and basic logic of the game. It also creates a ```Node``` object and populates the internal array of```Node.java``` with a character value of each room. Each entry of the internal array in ```Node.java``` represents a room. Furthermore, ```Node.java``` makes a call to a method in ```Match.java``` which populates a HashMap. In the HashMap, each ```key``` is a room and the corresponding ```value``` is a character array of length 4, indicating its neighbors.
+
+## Aerial map of the maze
+![alt text](/aerial_map.JPG)
