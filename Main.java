@@ -2,7 +2,6 @@
 The Dazed Maze
 Original Author: Syed Husain 
 email: syedhusain@utexas.edu
-Copyrights protected.
 */
 
 import java.util.Scanner;
@@ -32,18 +31,19 @@ public class Main {
         Scanner console = new Scanner(System.in);
 
         // Instructions/Manual of the game
-        System.out.println("***Welcome to The Dazed Maze.***");
+        System.out.println("***Welcome to The Dazed Maze.***\n");
         System.out.println("There are " + initialRoomList.size() + " rooms in this maze.");
         System.out.println("You are currently in room " + current + ". You will see at most 4 neighbors.");
-        System.out.println("The 1st neighbor is at North of you, 2nd is South, 3rd is East, and 4th is West.");
-        System.out.println("X denotes there is no neighbor at that position.");
-        System.out.println("The rooms are labeled by Englist letters. You are only allowed to enter CAPITALIZED LETTER of the room you wish to go to. \n");
+
+        System.out.println("The rooms are labeled by English letters. You are only allowed to enter CAPITALIZED LETTER of the room you wish to go to.");
+        System.out.println("The neighboring rooms are listed to your North, South, East, and West positions respectively.");
+        System.out.println("If there is no neighboring room listed, it means you don't have a neighbor at that location.\n");
         System.out.println("***Enough of instructions! God Speed!*** \n \n");
 
         // Fencepost technique
-        char[] output = initialRoomList.showMatches(current);
-        System.out.print("You are at room: " + current + ". Your neighbors are: ");
-        System.out.println(output);
+        String output = initialRoomList.showMatches(current);
+        System.out.println("You are at room: " + current + ". Your neighbors are: \n");
+        System.out.println(output + "\n");
 
         System.out.print("Choose where you want to be headed: ");
         current = console.next().charAt(0);
@@ -55,24 +55,25 @@ public class Main {
             // Error handling: If the user puts an invalid response
             if (!containsLetter(output, current)) {
                 while (!containsLetter(output, current)) {
-                    System.out.print("Invalid entry. Enter a valid choice from one of the following: ");
-                    System.out.println(output);
+                    System.out.println("\nInvalid entry. Enter a valid choice from one of the following: \n");
+                    System.out.println(output + "\n");
                     current = console.next().charAt(0);
                 }
             }
 
             else {
 
-                System.out.print("Your neighbors are: ");
+                System.out.println("\nYour neighbors are: \n");
                 System.out.println(initialRoomList.showMatches(current));
                 output = initialRoomList.showMatches(current);
-                System.out.print("Choose where you want to be headed: ");
+                System.out.println("\nChoose where you want to be headed: " + "\n");
                 current = console.next().charAt(0);
 
             }
 
         }
 
+        console.close();
         // When the user reaches the end of the game
         System.out.println("Congratulations! You made it. Thank you for playing!");
         System.out.println("To view the aerial map of this game, visit https://github.com/husainsyed");
@@ -82,13 +83,9 @@ public class Main {
     // Error-handling helper method:
     // Checks if the input by the user is valid, i.e., must be in within the range
     // of the valid rooms
-    private static boolean containsLetter(char[] arr, char current) {
-        if (current == 'X') {
-            return false;
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == current) {
+    private static boolean containsLetter(String arr, char current) {
+        for (int i = 0; i < arr.length(); i++) {
+            if (arr.charAt(i) == current) {
                 return true;
             }
         }
