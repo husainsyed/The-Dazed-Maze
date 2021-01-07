@@ -56,7 +56,7 @@ public class Main {
             if (!containsLetter(output, current)) {
                 while (!containsLetter(output, current)) {
                     System.out.println("\nInvalid entry. Enter a valid choice from one of the following: \n");
-                    System.out.println(output + "\n");
+                    System.out.print(output);
                     current = console.next().charAt(0);
                 }
             }
@@ -66,7 +66,7 @@ public class Main {
                 System.out.println("\nYour neighbors are: \n");
                 System.out.println(initialRoomList.showMatches(current));
                 output = initialRoomList.showMatches(current);
-                System.out.println("\nChoose where you want to be headed: " + "\n");
+                System.out.print("\nChoose where you want to be headed: ");
                 current = console.next().charAt(0);
 
             }
