@@ -29,13 +29,14 @@ public class Main {
 
         // Initializing Scanner for user input
         Scanner console = new Scanner(System.in);
+        int attempts = 0;
 
         // Instructions/Manual of the game
         System.out.println("***Welcome to The Dazed Maze.***\n");
         System.out.println("There are " + initialRoomList.size() + " rooms in this maze.");
         System.out.println("You are currently in room " + current + ". You will see at most 4 neighbors.");
 
-        System.out.println("The rooms are labeled by English letters. You are only allowed to enter CAPITALIZED LETTER of the room you wish to go to.");
+        System.out.println("The rooms are labeled by English letters.");
         System.out.println("The neighboring rooms are listed to your North, South, East, and West positions respectively.");
         System.out.println("If there is no neighboring room listed, it means you don't have a neighbor at that location.\n");
         System.out.println("***Enough of instructions! God Speed!*** \n \n");
@@ -46,18 +47,20 @@ public class Main {
         System.out.println(output + "\n");
 
         System.out.print("Choose where you want to be headed: ");
-        current = console.next().charAt(0);
+        current = getUpperCase(console.next().charAt(0));
+        attempts++;
 
         // This loop will keep taking input from the user until they reach the target
         // room
-        while ((!containsLetter(output, current)) || (current != target)) {
+        while ((!hasLetters(output, current)) || (current != target)) {
 
             // Error handling: If the user puts an invalid response
-            if (!containsLetter(output, current)) {
-                while (!containsLetter(output, current)) {
+            if (!hasLetters(output, current)) {
+                while (!hasLetters(output, current)) {
                     System.out.println("\nInvalid entry. Enter a valid choice from one of the following: \n");
-                    System.out.print(output);
-                    current = console.next().charAt(0);
+                    System.out.println(output + "\n");
+                    current = getUpperCase(console.next().charAt(0));
+                    attempts++;
                 }
             }
 
@@ -66,8 +69,9 @@ public class Main {
                 System.out.println("\nYour neighbors are: \n");
                 System.out.println(initialRoomList.showMatches(current));
                 output = initialRoomList.showMatches(current);
-                System.out.print("\nChoose where you want to be headed: ");
-                current = console.next().charAt(0);
+                System.out.println("\nChoose where you want to be headed: " + "\n");
+                current = getUpperCase(console.next().charAt(0));
+                attempts++;
 
             }
 
@@ -75,7 +79,8 @@ public class Main {
 
         console.close();
         // When the user reaches the end of the game
-        System.out.println("Congratulations! You made it. Thank you for playing!");
+        System.out.println("\nCongratulations! You made it. Thank you for playing!");
+        System.out.println("It took you " + attempts + " moves to finish the game\n");
         System.out.println("To view the aerial map of this game, visit https://github.com/husainsyed");
 
     }
@@ -83,13 +88,25 @@ public class Main {
     // Error-handling helper method:
     // Checks if the input by the user is valid, i.e., must be in within the range
     // of the valid rooms
-    private static boolean containsLetter(String arr, char current) {
+    private static boolean hasLetters(String arr, char current) {
         for (int i = 0; i < arr.length(); i++) {
             if (arr.charAt(i) == current) {
                 return true;
             }
         }
         return false;
+    }
+
+    private static char getUpperCase(char c){
+        //the characters are already uppercase
+        if ((c >= 65) && (c <= 90)){
+            return c;
+        }
+
+        //else, convert them into lower case by considering their ASCII values
+        //'a' = 97, 'A' = 65, so from 'a' to 'A' would be 'a' - 32.
+        return (char)(c-32);
+
     }
 
 }

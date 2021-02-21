@@ -3,12 +3,13 @@ public class Node {
     private char[] actualRooms;
     private static final int CONSTANT_SIZE = 12;
     private int pos;
-    Match createMatch = new Match();
+    Match createMatch;
 
     // Constructor
     public Node() {
         actualRooms = new char[CONSTANT_SIZE];
         pos = 0;
+        createMatch = new Match();
     }
 
     // Returning the size
@@ -29,19 +30,19 @@ public class Node {
     // The second parameter is the value of the map: Value is an array of its
     // neighboring rooms
     // The array has a fixed size of 4. 1st entry of array is North, 2nd is South,
-    // 3rd is East, 4th is West
+    // 3rd is West, 4th is East
     // Blank space denotes there is no neighbor at that side
     public void createNeighbors() {
-        createMatch.makeNeighbor(actualRooms[0], new char[] { ' ', 'D', 'B', ' ' });
-        createMatch.makeNeighbor(actualRooms[1], new char[] { ' ', 'E', 'C', 'A' });
-        createMatch.makeNeighbor(actualRooms[2], new char[] { ' ', 'F', ' ', 'B' });
-        createMatch.makeNeighbor(actualRooms[3], new char[] { 'A', 'G', 'E', ' ' });
-        createMatch.makeNeighbor(actualRooms[4], new char[] { 'B', ' ', 'F', 'D' });
-        createMatch.makeNeighbor(actualRooms[5], new char[] { 'C', 'I', ' ', 'E' });
+        createMatch.makeNeighbor(actualRooms[0], new char[] { ' ', 'D', ' ', 'B' });
+        createMatch.makeNeighbor(actualRooms[1], new char[] { ' ', 'E', 'A', 'C' });
+        createMatch.makeNeighbor(actualRooms[2], new char[] { ' ', 'F', 'B', ' ' });
+        createMatch.makeNeighbor(actualRooms[3], new char[] { 'A', 'G', ' ', 'E' });
+        createMatch.makeNeighbor(actualRooms[4], new char[] { 'B', ' ', 'D', 'F' });
+        createMatch.makeNeighbor(actualRooms[5], new char[] { 'C', 'I', 'E', ' ' });
         createMatch.makeNeighbor(actualRooms[6], new char[] { 'D', 'J', ' ', ' ' });
-        createMatch.makeNeighbor(actualRooms[7], new char[] { ' ', ' ', 'I', ' ' });
-        createMatch.makeNeighbor(actualRooms[8], new char[] { 'F', 'L', ' ', 'H' });
-        createMatch.makeNeighbor(actualRooms[9], new char[] { 'G', ' ', 'K', ' ' });
+        createMatch.makeNeighbor(actualRooms[7], new char[] { ' ', ' ', ' ', 'I' });
+        createMatch.makeNeighbor(actualRooms[8], new char[] { 'F', 'L', 'H', ' ' });
+        createMatch.makeNeighbor(actualRooms[9], new char[] { 'G', ' ', ' ', 'K' });
         createMatch.makeNeighbor(actualRooms[10], new char[] { ' ', ' ', ' ', 'J' });
         createMatch.makeNeighbor(actualRooms[11], new char[] { 'I', ' ', ' ', ' ' });
     }
