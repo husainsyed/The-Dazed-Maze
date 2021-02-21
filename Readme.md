@@ -1,6 +1,6 @@
 # The Dazed Maze
 
-A te t-based adventure game that uses the concepts of Object-Oriented programming and utilizes Data Structures to function. 
+A text-based adventure game that uses the concepts of Object-Oriented programming and utilizes Data Structures to function. 
 
 ## Instructions
 
