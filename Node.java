@@ -43,7 +43,7 @@ public class Node {
         createMatch.makeNeighbor(actualRooms[7], new char[] { ' ', ' ', ' ', 'I' });
         createMatch.makeNeighbor(actualRooms[8], new char[] { 'F', 'L', 'H', ' ' });
         createMatch.makeNeighbor(actualRooms[9], new char[] { 'G', ' ', ' ', 'K' });
-        createMatch.makeNeighbor(actualRooms[10], new char[] { ' ', ' ', ' ', 'J' });
+        createMatch.makeNeighbor(actualRooms[10], new char[] { ' ', ' ', 'J', ' ' });
         createMatch.makeNeighbor(actualRooms[11], new char[] { 'I', ' ', ' ', ' ' });
     }
 

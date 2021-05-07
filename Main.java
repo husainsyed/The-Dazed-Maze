@@ -37,8 +37,10 @@ public class Main {
         System.out.println("You are currently in room " + current + ". You will see at most 4 neighbors.");
 
         System.out.println("The rooms are labeled by English letters.");
-        System.out.println("The neighboring rooms are listed to your North, South, East, and West positions respectively.");
-        System.out.println("If there is no neighboring room listed, it means you don't have a neighbor at that location.\n");
+        System.out.println(
+                "The neighboring rooms are listed to your North, South, East, and West positions respectively.");
+        System.out.println(
+                "If there is no neighboring room listed, it means you don't have a neighbor at that location.\n");
         System.out.println("***Enough of instructions! God Speed!*** \n \n");
 
         // Fencepost technique
@@ -97,15 +99,15 @@ public class Main {
         return false;
     }
 
-    private static char getUpperCase(char c){
-        //the characters are already uppercase
-        if ((c >= 65) && (c <= 90)){
+    private static char getUpperCase(char c) {
+        // the characters are already uppercase
+        if ((c >= 65) && (c <= 90)) {
             return c;
         }
 
-        //else, convert them into lower case by considering their ASCII values
-        //'a' = 97, 'A' = 65, so from 'a' to 'A' would be 'a' - 32.
-        return (char)(c-32);
+        // else, convert them into lower case by considering their ASCII values
+        // 'a' = 97, 'A' = 65, so from 'a' to 'A' would be 'a' - 32.
+        return (char) (c - 32);
 
     }
 
